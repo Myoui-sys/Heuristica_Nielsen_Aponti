@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="APONTI Store — loja fictícia para estudo de caso acadêmico.">
+  <title>APONTI Store | Estudo de Caso</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="APONTI Store">
+      <span class="brand-mark">✦</span>
+      <span>
+        <strong>aponti</strong>
+        <small>academy</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+
+    <button class="cart-button" id="openCart" type="button" aria-label="Abrir carrinho">
+      🛒 Carrinho <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">APONTI STORE • ESTUDO DE CASO</span>
+        <h1>Leve a APONTI<br><span>com você.</span></h1>
+        <p>Produtos acessíveis para estudantes, tecnologia e divulgação da marca APONTI Academy.</p>
+        <a class="primary-button" href="#produtos">Ver produtos</a>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <span>APONTI</span>
+        <strong>IDEIAS<br>QUE<br>CONECTAM</strong>
+      </div>
+    </section>
+
+    <section class="section" id="produtos">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">NOSSA COLEÇÃO</span>
+          <h2>Produtos da APONTI</h2>
+        </div>
+        <label class="search-box">
+          <span class="sr-only">Buscar produto</span>
+          <input id="searchInput" type="search" placeholder="Buscar produto...">
+        </label>
+      </div>
+
+      <div class="category-list" role="group" aria-label="Categorias">
+        <button class="category active" data-category="todos" type="button">Todos</button>
+        <button class="category" data-category="vestuario" type="button">Vestuário</button>
+        <button class="category" data-category="acessorios" type="button">Acessórios</button>
+        <button class="category" data-category="estudo" type="button">Estudo</button>
+        <button class="category" data-category="tech" type="button">Tecnologia</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="promo section" id="sobre">
+      <div>
+        <span class="eyebrow">MARCA APONTI</span>
+        <h2>Pequenos produtos.<br>Grandes conexões.</h2>
+        <p>Loja fictícia criada exclusivamente para estudo acadêmico de usabilidade e aplicação das Heurísticas de Nielsen.</p>
+      </div>
+      <div class="promo-badge">APONTI<br><span>ACADEMY</span></div>
+    </section>
+  </main>
+
+  <div class="overlay hidden" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle">
+    <div class="drawer-header">
+      <div>
+        <span class="eyebrow">SEU PEDIDO</span>
+        <h2 id="cartTitle">Carrinho</h2>
+      </div>
+      <button class="icon-button" id="closeCart" type="button" aria-label="Fechar carrinho">×</button>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+      <p class="empty-cart">Seu carrinho está vazio.</p>
+    </div>
+
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <button class="checkout-button" id="checkoutButton" type="button">Processar transação</button>
+    </div>
+  </aside>
+
+  <div class="modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeCheckout" type="button" aria-label="Fechar checkout">×</button>
+      <span class="eyebrow">FINALIZAÇÃO</span>
+      <h2 id="checkoutTitle">Checkout</h2>
+      <p class="checkout-help">Preencha os dados abaixo para concluir seu pedido.</p>
+
+      <form id="checkoutForm">
+        <label>Nome
+          <input id="name" type="text" required placeholder="Seu nome">
+        </label>
+
+        <label>E-mail
+          <input id="email" type="email" required placeholder="voce@email.com">
+        </label>
+
+        <label>Forma de pagamento
+          <select id="payment" required>
+            <option value="">Selecione uma opção</option>
+            <option value="pix">PIX</option>
+            <option value="card">Cartão</option>
+            <option value="boleto">Boleto</option>
+          </select>
+        </label>
+
+        <label class="terms">
+          <input id="terms" type="checkbox">
+          <span>Li e aceito os termos da compra.</span>
+        </label>
+
+        <p class="error-message" id="formError" aria-live="polite"></p>
+
+        <button class="primary-button full" type="submit">Finalizar pedido</button>
+      </form>
+
+      <div class="success-message hidden" id="successMessage" aria-live="polite">
+        <strong>Pedido recebido!</strong>
+        <p>Obrigado por apoiar a APONTI Academy.</p>
+        <button class="primary-button" id="continueButton" type="button">Continuar comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>APONTI Store — estudo de caso acadêmico</span>
+    <span>HTML • CSS • JavaScript</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
